@@ -6,7 +6,7 @@ https://yourusername.github.io/valentine
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Just Us ❤️</title>
-  <style>
+  <style>u
     body {
       font-family: 'Arial', sans-serif;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
@@ -77,9 +77,9 @@ https://yourusername.github.io/valentine
     const qs = [
       "Do you remember how we first talked?",
       "What is one thing you love about us?",
-      "What song reminds you of me?",
+      "What Something I always used to say?",
       "What do you wish for us?",
-      "What do I mean to you?"
+      "What is one thing u loves abt me no matter what?"
     ];
     let i = 0;
 
