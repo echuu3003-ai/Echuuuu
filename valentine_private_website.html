@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just You & Me ❤️</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 22px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+    h1 { color: #e63946; }
+    p { color: #333; }
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #e63946;
+      color: white;
+      margin: 10px;
+    }
+    button.no {
+      background: #999;
+      position: absolute;
+    }
+    input {
+      padding: 12px;
+      width: 90%;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      margin-top: 12px;
+    }
+    .hidden { display: none; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      to { transform: translateY(-110vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_1f92d7a4e6.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card" id="login">
+  <h1>🔒 Private</h1>
+  <p>This page is only for you.</p>
+  <input type="password" id="pass" placeholder="Our secret code 💕" />
+  <button onclick="checkPass()">Enter</button>
+</div>
+
+<div class="card hidden" id="questions">
+  <h1>For You ❤️</h1>
+  <p id="q"></p>
+  <input type="text" id="ans" placeholder="Type your answer..." />
+  <button onclick="nextQ()">Next</button>
+</div>
+
+<div class="card hidden" id="final">
+  <h1>One Last Thing 💖</h1>
+  <p>Will you be my Valentine?</p>
+  <button onclick="yes()">YES 💘</button>
+  <button class="no" id="no">No 🙃</button>
+</div>
+
+<div class="card hidden" id="yes">
+  <h1>❤️ I knew it ❤️</h1>
+  <p>You just made me the happiest person alive.
+  <br/>This is just the beginning of us.</p>
+</div>
+
+<script>
+  const password = "0206"; // CHANGE THIS
+  const qs = [
+    "Do you remember how we first talked?",
+    "What made you stay?",
+    "What moment of us do you love the most?",
+    "What do you wish for us?",
+    "What do I mean to you?"
+  ];
+
+  let i = 0;
+
+  function checkPass() {
+    if (document.getElementById('pass').value === password) {
+      document.getElementById('login').classList.add('hidden');
+      document.getElementById('questions').classList.remove('hidden');
+      document.getElementById('q').innerText = qs[i];
+    } else {
+      alert('Wrong code 😅');
+    }
+  }
+
+  function nextQ() {
+    i++;
+    if (i < qs.length) {
+      document.getElementById('q').innerText = qs[i];
+      document.getElementById('ans').value = "";
+    } else {
+      document.getElementById('questions').classList.add('hidden');
+      document.getElementById('final').classList.remove('hidden');
+    }
+  }
+
+  function yes() {
+    document.getElementById('final').classList.add('hidden');
+    document.getElementById('yes').classList.remove('hidden');
+  }
+
+  const noBtn = document.getElementById('no');
+  noBtn.addEventListener('mouseover', () => {
+    noBtn.style.top = Math.random() * 80 + '%';
+    noBtn.style.left = Math.random() * 80 + '%';
+  });
+
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerText = '❤️';
+    heart.style.left = Math.random() * 100 + 'vw';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+</script>
+</body>
+</html>
