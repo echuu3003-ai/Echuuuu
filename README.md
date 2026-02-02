@@ -73,7 +73,7 @@ https://yourusername.github.io/valentine
   </div>
 
   <script>
-    const password = "0206"; // CHANGE THIS
+    const password = "1504"; // CHANGE THIS
     const qs = [
       "Do you remember how we first talked?",
       "What is one thing you love about us?",
