@@ -16,7 +16,7 @@
       overflow: hidden;
     }
     .card {
-      background: white;
+      background: red;
       padding: 28px;
       border-radius: 22px;
       width: 90%;
@@ -87,7 +87,14 @@
 <div class="card hidden" id="final">
   <h1>One Last Thing 💖</h1>
   <p>Will you be my Valentine?</p>
-  <button onclick="yes()">YES 💘</button>
+  <button onclick=<button onclick="sendLove()">YES ❤️</button>
+
+<script>
+function sendLove() {
+  window.location.href = "https://wa.me/60146321918?text=I%20love%20you%20so%20much%20❤️%20From%20the%20first%20day%20until%20now,%20you’ve%20always%20been%20special%20to%20me.%20No%20matter%20what%20happened%20between%20us,%20my%20feelings%20never%20changed.%20I%20choose%20you%20today%20and%20always.%20Will%20you%20be%20mine%20again?%20🥺💕";
+}
+</script>
+"yes()">YES 💘</button>
   <button class="no" id="no">No 🙃</button>
 </div>
 
